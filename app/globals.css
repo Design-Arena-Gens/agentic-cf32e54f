@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-charcoal: 15 15 18; /* rgb */
+    --color-bronze: 176 141 87; /* rgb */
+  }
+  html { color-scheme: dark; }
+  body { @apply bg-charcoal text-stone-200 antialiased; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-bronze/90 hover:bg-bronze text-charcoal shadow-glow; }
+  .btn-secondary { @apply btn border border-stone-700 hover:border-bronze/60; }
+  .heading { @apply font-serif tracking-wide text-stone-100; }
+}
+
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity 600ms ease, transform 600ms ease; }
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+/* Accessible focus styles for links */
+a { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-bronze rounded-sm; }
